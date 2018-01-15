@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block body1 %}
+
+{% load static %}
+
+ <link rel="stylesheet" href="{% static 'Bootstrap/css1/css.css' %}">
+
+    <div id="headerwrap">
+        <div class = "container">
+            <div class="row centered">
+                <div class="tabs">
+
+                    <div class="tabs-header">
+                        <div class="tab-h" data-tab="0">Concert agency</div>
+                        <div class="tab-h" data-tab="1">Add Concert agency</div>
+                        <div class="tab-h" data-tab="2">info</div>
+                    </div>
+                    <div class="tabs-body">
+                        <div class="col-lg-8 col-ofsset-2">
+                            <div class="tab-b">
+
+                                <table class = tooltip-inner>
+                                        <caption><h1>Concert agency</h1></caption>
+                                    <tr>
+                                        <th><h3 >CA Name</h3></th>
+                                        <th><h3>Year</h3></th>
+                                        <th><h3>Email</h3></th>
+                                    </tr>
+                                        {% for CA in object_list %}
+                                    <tr>
+                                        <td><h4>{{ CA.name_CA }}</h4></td>
+                                        <td><h4>{{ CA.creation_year }}</h4></td>
+                                        <td><h4>{{ CA.email }}</h4></td>
+                                    </tr>
+                                        {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+
+                            <div class="tab-b">
+                                <div class = 'MyHeader'>
+                                     <div class="col-lg-8 col-ofsset-4">
+                                            <form action="" method="post">{% csrf_token %}
+                                            {{ form.as_p }}
+                                                <div>
+                                                    <button type="submit" class="btn ui-button-icon-primary">Subscribe</button>
+                                                </div>
+                                            </form>
+                                     </div>
+                                </div>
+                            </div>
+                        <div class="tab-b"></div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src={% static 'Bootstrap/js/tabss.js' %}></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

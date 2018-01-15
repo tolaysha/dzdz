@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Kurale|Yanone+Kaffeesatz|Play');
+
+body {
+    background-color: #f2f2f2;
+    font-family: Lato, Play;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+h1, h2, h3, h4, h5 ,h6 {
+    font-family: Play;
+    color: #99669999;
+}
+
+p {
+    font-family: Play;
+    color: #996999;
+    text-align: left;
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+a {
+    color: darkgray;
+}
+
+a:hover, a:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+li {
+    text-align: left;
+}
+
+.navbar {
+    background-color: #444444;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#header1 {
+    background: url(../../../static/images/bg1.jpg) no-repeat;
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 15px;
+    min-height: 1080px;
+    background-size: 100%;
+}
+
+.container {
+    width: 90%;
+    color: #999999;
+}
+.navbar-inverse .navbar-nav > .active > a {
+    background-color: #28a4c9;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #000000;
+    font-weight:bolder;
+    font-size:22px;
+}
+
+
+.body {
+    width: 95vw;
+    height: 95vh;
+    overflow: scroll;
+}

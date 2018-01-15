@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block body1 %}
+<div id="headerwrap">
+    <div class = "container">
+        <div class="row centered">
+            <div class="col-lg-12 col-ofsset-2">
+                <h1>Welcome {{request.user.username}}</h1>
+                <h1>Here you can look info about you profile and follow band</h1>
+                <hr>
+                <div>
+                    <form action="" method="post">{% csrf_token %}
+                    {{ form.as_p }}
+
+                        <div>
+                            <button type="submit" class="btn ui-button-icon-primary">Follow</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

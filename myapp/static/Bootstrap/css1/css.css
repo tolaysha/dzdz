@@ -1,0 +1,101 @@
+.tabs {
+  position: relative;
+  width: 600px;
+  height: 800px;
+  overflow: hidden;
+}
+
+.tabs .tabs-header {
+  display: inline-flex ;
+  position: absolute;
+  top: 30px;
+
+
+}
+
+.tabs .tabs-header .tab-h {
+  display: flex;
+  font-family: "Roboto", serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px;
+  color: #f0f0f0;
+  background-color: #5c6169;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s all ease-out;
+}
+
+.tabs .tabs-header div:nth-child(1) {
+  color: black;
+  background-color: #f0f0f0;
+}
+
+.tabs .tabs-header div:nth-child(1):hover {
+  color: black;
+  background-color: #f0f0f0;
+  transition: 0.1s all ease-out;
+}
+
+.tabs .tabs-body {
+  width: 100%;
+  height: 120px;
+}
+
+.tabs .tabs-body .tab-b {
+  position: absolute;
+  top: 80px;
+  padding: 15px;
+  opacity: 0;
+  transition: 0.3s all ease-out;
+}
+
+.tabs .tabs-body div:nth-child(1) {
+  opacity: 1;
+  top: 34px;
+}
+
+
+.MyHeader{
+
+
+/*background: url(lg.jpg) no-repeat center top;*/
+margin: 1px auto 20px;
+padding-right: 50px;
+padding-left: 30px;
+position: absolute;
+top: 100px;
+text-align: right;
+background-position: center center;
+
+min-height: 10px;
+width: 100%;
+
+}
+.menu-item{
+	border: 2px solid #66CDAA;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+.menu-item .submenu{
+	height: 40px;
+	width: 120px;
+	background: green;
+	position: absolute;
+	cursor: pointer;
+}
+
+table tr a{
+display: block;
+width: auto;
+height: 100%;
+white-space: pre-line;
+min-width: 150px;
+}
+
+.body {
+    width: 95vw;
+    height: 95vh;
+    overflow: scroll;
+}

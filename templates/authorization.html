@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block body1 %}
+
+
+
+<div id="headerwrap">
+    <div class = "container">
+        <div class="row centered">
+            <div class="col-lg-12 col-ofsset-2">
+                <h1>Welcome guest,</h1>
+                <h1>login, pls:</h1>
+                <hr>
+                <div>
+                    <form action="" method="post">
+                       {% csrf_token %}
+                        <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+                        {% for v in error_messages %}
+                            <h3>v</h3>
+                        {% endfor %}
+
+                        <h3>Username</h3>
+                        {{ form.username }}
+                        <h3>Password</h3>
+                        {{ form.password }}
+
+                        <br><br>
+
+                 {#        {{ form.as_p }}#}
+
+                        <form method="get" action="{% url 'main'  %}">
+                            <button type="submit">Continue</button>
+                        </form>
+
+                </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+           <h1>Welcome guest,</h1>
+            <h1>login, pls:</h1>
+            <hr>
+            <div>
+                <form action="" method="post">
+                   {% csrf_token %}
+                    <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+                    {% for v in error_messages %}
+                        <h3>v</h3>
+                    {% endfor %}
+
+                    <h3>Username</h3>
+                    {{ form.username }}
+                    <h3>Password</h3>
+                    {{ form.password }}
+
+                    <br><br>
+
+             {#        {{ form.as_p }}#}
+
+                    <form method="get" action="{% url 'main'  %}">
+                        <button type="submit">Continue</button>
+                    </form>
+
+            </form>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+ </div>
+
+{% endblock %}

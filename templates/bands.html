@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block body1 %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/css.css' %}">
+
+    <div id="headerwrap">
+        <div class = "container">
+            <div class="row centered">
+                <div class="tabs">
+
+                    <div class="tabs-header">
+                        <div class="tab-h" data-tab="0">Bands</div>
+                        <div class="tab-h" data-tab="1">Add band</div>
+                        <div class="tab-h" data-tab="2">add artist(user)</div>
+                    </div>
+                    <div class="tabs-body">
+                        <div class="col-lg-8 col-ofsset-2">
+                            <div class="tab-b">
+
+                                <table class = tooltip-inner>
+                                    <caption><h1>Band's</h1></caption>
+                                        <tr>
+                                            <th><h3 >Bands Name</h3></th>
+                                            <th><h3>Email</h3></th>
+                                            <th><h3>Budget($)</h3></th>Bands
+                                        </tr>
+                                    {% for band in object_list %}
+
+                                        <tr>
+                                            <td><h4><a href={% url "Bands"%}?id={{ band.id }} > {{ band.bands_name }}</a></h4></td>
+                                            <td><h4><a href={% url "Bands"%}?id={{ band.id }} >{{ band.email }}</a></h4></td>
+                                            <td><h4><a href={% url "Bands"%}?id={{ band.id }} > {{ band.budget }}</a></h4></td>
+                                            <td>{% if band.photo.url != None %}
+                                                    <img alt="None" src="{{ band.photo.url }}" width=40px height=40px>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+
+                                    {% endfor %}
+                                </table>
+
+                                    <h4>Artist in the group</h4>
+                                    {% for band in object_list %}
+                                        {% for artist in band.get_artist %}
+                                          <h4>{{ artist.name }}</h4>
+                                        {% endfor %}
+                                    {% endfor %}
+
+                            </div>
+                        </div>
+
+                            <div class="tab-b">
+                                <div class = 'MyHeader'>
+                                     <div class="col-lg-8 col-ofsset-4">
+                                            <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+                                            {{ form.as_p }}
+                                                <div>
+                                                    <button type="submit" class="btn ui-button-icon-primary">Subscribe</button>
+                                                </div>
+                                            </form>
+                                     </div>
+                                </div>
+                            </div>
+                        <div class="tab-b"></div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{#    <div class="modal fade" id="myModal" role="dialog">#}
+{#                                        <div class="modal-dialog">#}
+{##}
+{#                                          <!-- Modal content-->#}
+{#                                          <div class="modal-content">#}
+{#                                            <div class="modal-header">#}
+{#                                              <button type="button" class="close" data-dismiss="modal">&times;</button>#}
+{#                                              <h4 class="modal-title">Modal Header</h4>#}
+{#                                            </div>#}
+{#                                            <div class="modal-body">#}
+{#                                            <table class = tooltip-inner>#}
+{#                                    <caption><h1>Band's</h1></caption>#}
+{#                                        <tr>#}
+{#                                            <th><h3 >Bands Name</h3></th>#}
+{#                                            <th><h3>Email</h3></th>#}
+{#                                            <th><h3>Budget($)</h3></th>#}
+{#                                        </tr>#}
+{#                                    {% for band in object_list %}#}
+{##}
+{#                                        <tr>#}
+{#                                            <td><h4><a href="#myModal" data-toggle="modal" data-target="#myModal"> {{ band.bands_name }}</a></h4></td>#}
+{#                                            <td><h4><a href="#myModal" data-toggle="modal" data-target="#myModal">{{ band.email }}</a></h4></td>#}
+{#                                            <td><h4><a href="#myModal" data-toggle="modal" data-target="#myModal"> {{ band.budget }}</a></h4></td>#}
+{#                                            <td>{% if band.photo.url != None %}#}
+{#                                                    <img alt="None" src="{{ band.photo.url }}" width=40px height=40px>#}
+{#                                                {% endif %}#}
+{#                                            </td>#}
+{#                                        </tr>#}
+{##}
+{#                                    {% endfor %}#}
+{#                                </table>#}
+{##}
+{##}
+{#                                            </div>#}
+{#                                            <div class="modal-footer">#}
+{#                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
+{#                                            </div>#}
+{#                                          </div>#}
+{##}
+{#                                        </div>#}
+{#                                      </div>#}
+<script src={% static 'Bootstrap/js/tabss.js' %}></script>
+{% endblock %}

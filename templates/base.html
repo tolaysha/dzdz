@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the musicend</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/main.css' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css1/css.css' %}">
+    <link rel="stylesheet" href="{% static 'infinite.min.js' %}">
+    <link rel="stylesheet" href="{% static 'jquery.waypoints.min.js' %}">
+    <link rel="stylesheet" href="{% static 'alight_0.12.last.min.js' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/js/bootstrap.min.js' %}">
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<div class ="navbar navbar-inverse navbar-fixed-top">
+    <div class ="container">
+        <div class="navbar-header">
+            <button type ="button" class ="navbar-toggle" data-toggle="collapse" data-target =".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class ="navbar-brand" href ="">the<i class="fa fa-music" aria-hidden="true"></i>musicend</a>
+        </div>
+            <div class ="navbar-collapse collapse">
+                <ul class ="nav navbar-nav navbar-right">
+
+
+                {% if request.user.is_authenticated %}
+                    <li><a href="{%url 'logout_url'  %}">logout</a></li>
+                    <li><a href="{%url 'userinfo'  %}">{{request.user.username}}</a></li>
+                {% else %}
+                    {% if "/authorization/" == request.path %}
+                        <li class = "active"><a href="{%url 'authorization' %}"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                    {% else %}
+                        <li><a href="{%url 'authorization' %}"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                    {% endif %}
+
+                    <li>
+                         <a href="" data-toggle="modal" data-target="#myModal" ><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+
+
+                    </li>
+
+                    {% if "/registration/" == request.path %}
+                        <li class = "active"><a href="{%url 'registration' %}"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+                    {% else %}
+                        <li><a href="{%url 'registration' %}"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+                    {% endif %}
+
+                    {% endif %}
+                    <li><a href="">|</a></li>
+
+                    {% if "/main" == request.path %}
+                        <li class = "active"><a href={%url 'main'%}>Home</a></li>
+                    {% else %}
+                        <li><a href={%url 'main'%}>Home</a></li>
+                    {% endif %}
+
+                    {% if "/Bands/" == request.path %}
+                        <li class = "active"><a href={%url 'Bands' %}>Bands</a></li>
+                    {% else %}
+                        <li><a href={%url 'Bands' %}>Bands</a></li>
+                    {% endif %}
+
+                    {% if "/ConcertAgency/" == request.path %}
+                        <li class = "active"><a href={%url 'concertAgency' %}>Concert Agency</a></li>
+                    {% else %}
+                        <li><a href={%url 'concertAgency' %}>Concert Agency</a></li>
+                    {% endif %}
+
+                    {% if "/about" == request.path %}
+                        <li class = "active"><a href={%url 'about'  %}>About</a></li>
+                    {% else %}
+                        <li><a href={%url 'about'  %}>About</a></li>
+                    {% endif %}
+
+                    {% if "/notif/" == request.path %}
+                        <li class = "active"><a href="{%url 'notification' %}"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                    {% else %}
+                        <li><a href="{%url 'notification' %}"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                </ul>
+         </div>
+    </div>
+</div>
+
+
+                                      <!-- Modal -->
+
+
+
+    {% block body1 %}
+
+
+    {% endblock %}
+
+</html>

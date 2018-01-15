@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block body1 %}
+
+
+
+
+<div id="headerwrap">
+    <div class = "container">
+        <div class="row centered">
+            <div class="col-lg-12 col-ofsset-2">
+                <h1>Welcome guest,</h1>
+                <h1>sign up, pls:</h1>
+                <hr>
+                <div>
+                    <form action="" method="post">
+                       {% csrf_token %}
+                        <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+                        {% for v in error_messages %}
+                            <h3>v</h3>
+                        {% endfor %}
+
+                       <h3>Username</h3>
+                       {{ form.username }}
+                       <h3>Password</h3>
+                       {{ form.password1 }}
+                       <h3>Repeat Password</h3>
+                       {{ form.password2 }}
+                       <h3>Email</h3>
+                       {{ form.email }}
+                       <h3>Firstname</h3>
+                       {{ form.firstname }}
+                       <h3>Surname</h3>
+                       {{ form.surname }}
+
+                       <br><br>
+
+{#                        {{ form.as_p }}#}
+
+                        <button class="btn bottom" type="submit">Submit</button>
+
+                </form>
+
+
+                </div>
+            </div>
+                <div class="col-xs-12 col-md-1">
+                    <form method="get" action="{% url 'reg2'  %}">
+                            <button type="submit">Anather registration</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
